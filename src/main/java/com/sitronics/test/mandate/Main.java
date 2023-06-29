@@ -20,17 +20,14 @@ public class Main {
     public static void main(String[] args) {
         int passedMandateIterations = 1;
 
-        try {
-            for (; passedMandateIterations <= TEST_ITERATIONS; passedMandateIterations++) {
-                String level = Mandate.getMandate();
-                int levelAsInt = Integer.parseInt(level);
+        while (passedMandateIterations <= TEST_ITERATIONS) {
+            String level = Mandate.getMandate();
+            int levelAsInt = Integer.parseInt(level);
+            passedMandateIterations++;
 
-                if (levelAsInt < LOWEST_MANDATE || levelAsInt > HIGHEST_MANDATE) {
-                    break;
-                }
+            if (levelAsInt < LOWEST_MANDATE || levelAsInt > HIGHEST_MANDATE) {
+                break;
             }
-        } catch (Throwable e) {
-            log.error(e);
         }
 
         if (passedMandateIterations == TEST_ITERATIONS) {
